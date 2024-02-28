@@ -1,0 +1,33 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "appointmentCollection",
+    "dateExported": "2024-02-28T04:23:58.155Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "4dbaf4b3-b8bc-4396-b2b5-b2945acce7b4",
+            "colId": "39fc469c-4fcd-4677-a19d-9655f2cc88bd",
+            "containerId": "",
+            "name": "addApointment",
+            "url": "http://localhost:3000/adoptionSystem/v1/appointment",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-02-28T03:39:24.662Z",
+            "modified": "2024-02-28T04:14:27.418Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWRlYjAwOTIzYTk0YTY0MGU4ZGY4NGYiLCJpYXQiOjE3MDkwOTM1NTAsImV4cCI6MTcwOTA5NzE1MH0.3X07-MN8R-iBjttEIRbig4Zrl3HxiADHu1vcPO-ms3U"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"date\":\"27/02/2024\",\n  \"pet\":\"65deb2dcd1ad5edf0950e61a\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

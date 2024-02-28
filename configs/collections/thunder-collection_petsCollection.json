@@ -1,0 +1,85 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "petsCollection",
+    "dateExported": "2024-02-28T04:23:52.361Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "37a19b16-e7d9-4248-853f-8ed5162b00cd",
+            "colId": "2f7b2d6b-e35b-4824-9811-db475b6fe1e7",
+            "containerId": "",
+            "name": "addPets",
+            "url": "http://localhost:3000/adoptionSystem/v1/pets",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-02-27T21:52:28.395Z",
+            "modified": "2024-02-28T04:13:16.213Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWRlYjAwOTIzYTk0YTY0MGU4ZGY4NGYiLCJpYXQiOjE3MDkwOTM1NTAsImV4cCI6MTcwOTA5NzE1MH0.3X07-MN8R-iBjttEIRbig4Zrl3HxiADHu1vcPO-ms3U"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"Loky\",\n  \"description\":\"Chihuahua cabeza de manzana\",\n  \"age\":\"2\",\n  \"type\":\"disponible\",\n  \"correo\":\"test5@kinal.edu.gt\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "37a8edd0-01fb-4395-965f-2eed665ebcec",
+            "colId": "2f7b2d6b-e35b-4824-9811-db475b6fe1e7",
+            "containerId": "",
+            "name": "listPets",
+            "url": "http://localhost:3000/adoptionSystem/v1/pets",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-02-27T22:13:30.307Z",
+            "modified": "2024-02-27T22:16:27.285Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "bbdccfc6-05e0-4844-9394-652fd6e5186c",
+            "colId": "2f7b2d6b-e35b-4824-9811-db475b6fe1e7",
+            "containerId": "",
+            "name": "searchPets",
+            "url": "http://localhost:3000/adoptionSystem/v1/pets/65deb2dcd1ad5edf0950e61a",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-02-28T02:13:22.547Z",
+            "modified": "2024-02-28T04:13:52.264Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWRlYjAwOTIzYTk0YTY0MGU4ZGY4NGYiLCJpYXQiOjE3MDkwOTM1NTAsImV4cCI6MTcwOTA5NzE1MH0.3X07-MN8R-iBjttEIRbig4Zrl3HxiADHu1vcPO-ms3U"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f7d0d4cd-2939-4b91-b624-7ee8587d1bed",
+            "colId": "2f7b2d6b-e35b-4824-9811-db475b6fe1e7",
+            "containerId": "",
+            "name": "deletePet",
+            "url": "http://localhost:3000/adoptionSystem/v1/pets/65de9a033a82cdef5608414f",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-02-28T02:26:43.760Z",
+            "modified": "2024-02-28T02:29:22.130Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWRlNmMxZDIyYjM5ZWZiNzBjMDM3YTEiLCJpYXQiOjE3MDkwODY0NjAsImV4cCI6MTcwOTA5MDA2MH0.Qe1P-bVvVuqt1yyUcFw1AIUhfFOBJL0wj1mlSsPXkCE"
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

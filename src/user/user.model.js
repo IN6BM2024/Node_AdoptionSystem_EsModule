@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+// Definir el esquema para el modelo de usuario
 const UserSchema = mongoose.Schema({
   nombre: {
     type: String,
@@ -7,15 +8,21 @@ const UserSchema = mongoose.Schema({
   },
   correo: {
     type: String,
-    required: [true, "El correo es obligarorio"],
+    required: [true, "El correo es obligatorio"],
     unique: true,
   },
   password: {
     type: String,
-    required: [true, "La contraseña es obligaroria"],
+    required: [true, "La contraseña es obligatoria"],
   },
   img: {
     type: String,
+  },
+  phone: {
+    type: String,
+    minLength: 8,
+    maxLength: 8,
+    required: true,
   },
   role: {
     type: String,
@@ -32,10 +39,12 @@ const UserSchema = mongoose.Schema({
   },
 });
 
-UserSchema.methods.toJSON = function(){
-  const { __v, password, _id, ...usuario} = this.toObject();
+// Modificar el método toJSON para excluir campos no deseados en la respuesta
+UserSchema.methods.toJSON = function () {
+  const { __v, password, _id, ...usuario } = this.toObject();
   usuario.uid = _id;
   return usuario;
-}
+};
 
+// Exportar el modelo de usuario
 export default mongoose.model('User', UserSchema);

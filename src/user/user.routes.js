@@ -1,11 +1,11 @@
 import { Router } from "express";
 import { check } from "express-validator";
 import {
-  usuariosGet,
-  usuariosPost,
-  getUsuarioById,
-  usuariosPut,
-  usuariosDelete,
+  getUsers,
+  createUser,
+  getUserById,
+  updateUser,
+  deleteUser,
 } from "./user.controller.js";
 import {
   existenteEmail,
@@ -18,8 +18,10 @@ import { validarJWT } from "../middlewares/validar-jwt.js";
 
 const router = Router();
 
-router.get("/", usuariosGet);
+// Ruta para obtener la lista de usuarios
+router.get("/", getUsers);
 
+// Ruta para obtener un usuario por su ID
 router.get(
   "/:id",
   [
@@ -27,9 +29,10 @@ router.get(
     check("id").custom(existeUsuarioById),
     validarCampos,
   ],
-  getUsuarioById
+  getUserById
 );
 
+// Ruta para crear un nuevo usuario
 router.post(
   "/",
   [
@@ -40,11 +43,13 @@ router.post(
     check("correo", "Este no es un correo válido").isEmail(),
     check("correo").custom(existenteEmail),
     check("role").custom(esRoleValido),
+    check("phone","El teléfono debe de contener 8 números").isLength({min: 8, max:8}),
     validarCampos,
   ],
-  usuariosPost
+  createUser
 );
 
+// Ruta para actualizar un usuario por su ID
 router.put(
   "/:id",
   [
@@ -52,9 +57,10 @@ router.put(
     check("id").custom(existeUsuarioById),
     validarCampos,
   ],
-  usuariosPut
+  updateUser
 );
 
+// Ruta para eliminar un usuario por su ID
 router.delete(
   "/:id",
   [
@@ -64,7 +70,8 @@ router.delete(
     check("id").custom(existeUsuarioById),
     validarCampos,
   ],
-  usuariosDelete
+  deleteUser
 );
 
 export default router;
+
