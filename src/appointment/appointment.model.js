@@ -16,12 +16,12 @@ const appointmentSchema = Schema({
     },
     pet: {
         type: Schema.ObjectId,
-        ref: 'pet',
+        ref: 'Pet',
         required: true,
     },
     user: {
         type: Schema.ObjectId,
-        ref: 'user',
+        ref: 'User',
         required: true,
     },
 }, {

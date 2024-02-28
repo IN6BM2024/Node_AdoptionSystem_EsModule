@@ -1,32 +1,51 @@
 {
     "client": "Thunder Client",
     "collectionName": "appointmentCollection",
-    "dateExported": "2024-02-28T04:23:58.155Z",
+    "dateExported": "2024-02-28T14:59:26.476Z",
     "version": "1.1",
     "folders": [],
     "requests": [
         {
-            "_id": "4dbaf4b3-b8bc-4396-b2b5-b2945acce7b4",
-            "colId": "39fc469c-4fcd-4677-a19d-9655f2cc88bd",
+            "_id": "d2ab5522-0c0f-4417-bd00-959e67482900",
+            "colId": "3ffe1f96-873b-4f1a-82ec-f62414ccfe91",
             "containerId": "",
             "name": "addApointment",
-            "url": "http://localhost:3000/adoptionSystem/v1/appointment",
+            "url": "http://localhost:8080/adoptionSystem/v1/appointment",
             "method": "POST",
             "sortNum": 10000,
-            "created": "2024-02-28T03:39:24.662Z",
-            "modified": "2024-02-28T04:14:27.418Z",
+            "created": "2024-02-28T13:56:26.119Z",
+            "modified": "2024-02-28T14:33:13.590Z",
             "headers": [
                 {
                     "name": "x-token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWRlYjAwOTIzYTk0YTY0MGU4ZGY4NGYiLCJpYXQiOjE3MDkwOTM1NTAsImV4cCI6MTcwOTA5NzE1MH0.3X07-MN8R-iBjttEIRbig4Zrl3HxiADHu1vcPO-ms3U"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWRlNjRhY2U2YzA2ODIwY2E0MzFjZWUiLCJpYXQiOjE3MDkxMjkwNTcsImV4cCI6MTcwOTEzMjY1N30.spSl4_Njkb9vxhkVqMD3JnmYprhUL-maL3zhn1lxNco"
                 }
             ],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"date\":\"27/02/2024\",\n  \"pet\":\"65deb2dcd1ad5edf0950e61a\"\n}",
+                "raw": "{\n  \"date\":\"28/02/2024 08:00\",\n  \"pet\":\"65deb2dcd1ad5edf0950e61a\"\n}",
                 "form": []
             },
+            "tests": []
+        },
+        {
+            "_id": "d33775d7-389c-4b70-8f4b-3c3cd5eab084",
+            "colId": "3ffe1f96-873b-4f1a-82ec-f62414ccfe91",
+            "containerId": "",
+            "name": "showAppointments",
+            "url": "http://localhost:8080/adoptionSystem/v1/appointment",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-02-28T13:57:34.316Z",
+            "modified": "2024-02-28T14:10:45.183Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWRlNjRhY2U2YzA2ODIwY2E0MzFjZWUiLCJpYXQiOjE3MDkxMjk0MzQsImV4cCI6MTcwOTEzMzAzNH0.zGso5P7N9k90Q6QvwxMMJsx8VRiwIOoitc7jk58XaGc"
+                }
+            ],
+            "params": [],
             "tests": []
         }
     ]
