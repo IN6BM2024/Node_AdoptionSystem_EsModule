@@ -52,16 +52,16 @@ export const getUserById = async (req, res) => {
 // Actualiza la información de un usuario
 export const updateUser = async (req, res = response) => {
     const { id } = req.params;
-    const { _id, password, google, correo, ...rest } = req.body;
+    const { _id, password, google, correo, ...data} = req.body;
 
     if (password) {
         // Si se proporciona una nueva contraseña, la encripta antes de actualizar
         const salt = bcryptjs.genSaltSync(); // Por defecto tiene 10 vueltas
-        rest.password = bcryptjs.hashSync(password, salt);
+        data.password = bcryptjs.hashSync(password, salt);
     }
 
     // Actualiza el usuario en la base de datos
-    await User.findByIdAndUpdate(id, rest);
+    await User.findByIdAndUpdate(id, data);
 
     // Obtiene el usuario actualizado
     const user = await User.findOne({ _id: id });

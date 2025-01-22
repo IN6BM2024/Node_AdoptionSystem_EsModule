@@ -5,53 +5,57 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import { dbConnection } from './mongo.js';
+import limiter from '../src/middlewares/validar-cant-peticiones.js';
 import userRoutes from '../src/user/user.routes.js';
 import authRoutes from '../src/auth/auth.routes.js';
 import petRoutes from '../src/pet/pet.routes.js';
-import appoinmentRoutes from '../src/appointment/appointment.routes.js';
+import appointmentRoutes from '../src/appointment/appointment.routes.js';
 
-class Server {
-    constructor() {
-        this.app = express();
-        this.port = process.env.PORT;
-        this.usuarioPath = '/adoptionSystem/v1/users';
-        this.authPath = '/adoptionSystem/v1/auth';
-        this.petPath = '/adoptionSystem/v1/pets';
-        this.appointmentPath = '/adoptionSystem/v1/appointment';
+// Configura los middleware de la aplicación
+const configurarMiddlewares = (app) => {
+    app.use(express.urlencoded({ extended: false }));
+    app.use(cors());
+    app.use(express.json());
+    app.use(helmet());
+    app.use(morgan('dev'));
+    app.use(limiter);
+};
 
-        this.middlewares();  // Configura los middleware de la aplicación
-        this.conectarDB();  // Establece la conexión a la base de datos
-        this.routes();  // Configura las rutas de la aplicación
-    }
+// Configura las rutas de la aplicación
+const configurarRutas = (app) => {
+    const usuarioPath = '/adoptionSystem/v1/users';
+    const authPath = '/adoptionSystem/v1/auth';
+    const petPath = '/adoptionSystem/v1/pets';
+    const appointmentPath = '/adoptionSystem/v1/appointment';
 
-    // Conecta a la base de datos MongoDB
-    async conectarDB() {
+    app.use(usuarioPath, userRoutes);
+    app.use(authPath, authRoutes);
+    app.use(petPath, petRoutes);
+    app.use(appointmentPath, appointmentRoutes);
+};
+
+// Conecta a la base de datos MongoDB
+const conectarDB = async () => {
+    try {
         await dbConnection();
+        console.log('Conexión a la base de datos exitosa');
+    } catch (error) {
+        console.error('Error conectando a la base de datos:', error);
+        process.exit(1); // Salir si la conexión falla
     }
+};
 
-    // Configura los middleware de la aplicación
-    middlewares() {
-        this.app.use(express.urlencoded({ extended: false }));
-        this.app.use(cors());
-        this.app.use(express.json());
-        this.app.use(helmet());
-        this.app.use(morgan('dev'));
-    }
+// Inicializa y configura el servidor
+export const iniciarServidor = async () => {
+    const app = express();
+    const port = process.env.PORT || 3000;
 
-    // Configura las rutas de la aplicación
-    routes() {
-        this.app.use(this.usuarioPath, userRoutes);
-        this.app.use(this.authPath, authRoutes);
-        this.app.use(this.petPath, petRoutes);
-        this.app.use(this.appointmentPath, appoinmentRoutes);
-    }
+    await conectarDB(); // Conexión a la base de datos
+    configurarMiddlewares(app); // Configurar middleware
+    configurarRutas(app); // Configurar rutas
 
-    // Inicia el servidor y escucha en el puerto especificado
-    listen() {
-        this.app.listen(this.port, () => {
-            console.log('Server running on port ', this.port);
-        });
-    }
-}
-
-export default Server;
+    // Inicia el servidor
+    app.listen(port, () => {
+        console.log(`Server running on port ${port}`);
+    });
+};

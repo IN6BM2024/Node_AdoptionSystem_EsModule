@@ -10,3 +10,4 @@ router.post('/', [validarJWT, validarCampos], saveAppointment);
 router.get('/',[validarJWT,validarCampos],showAppointments);
 
 export default router;
+

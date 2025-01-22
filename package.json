@@ -1,12 +1,12 @@
 {
-  "name": "coffeesmodule",
+  "name": "adoptionsistem",
   "version": "1.0.0",
   "description": "API IN6 2024 ESModule",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [
     "ESModule"
@@ -14,15 +14,17 @@
   "author": "Braulio Echeverria",
   "license": "MIT",
   "dependencies": {
+    "adoptionsistem": "file:",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "date-fns": "^3.3.1",
     "dotenv": "^16.4.4",
     "express": "^4.18.2",
+    "express-rate-limit": "^7.5.0",
     "express-validator": "^7.0.1",
     "helmet": "^7.1.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.1.2",
+    "mongoose": "^8.9.5",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
